@@ -8,41 +8,28 @@ type RootStackParamList = {
     PreviewScreen: undefined;
 };
 
-type Props = NativeStackScreenProps<RootStackParamList, 'FormScreen'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'PreviewScreen'>;
 
-export default function FormScreen({ navigation }: Props) {
+export default function PreviewScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.contentArea}>
-        <Text style={styles.title}>Formulário</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Nome: "
-          keyboardType="default"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Email: "
-          keyboardType="email-address"
-        />
-        <TextInput
-          style={styles.textArea}
-          placeholder="Bio: "
-          keyboardType="default"
-          multiline={true}
-        />
+        <Text style={styles.title}>Usuário</Text>
+        <Text style={styles.text}>Nome do usuário aqui </Text>
+        <Text style={styles.text}>Email do usuário aqui </Text>
+        <Text style={styles.textArea}>Bio do usuário aqui </Text>
       </View>
       <View style={styles.buttonsRow}>
         <View style={styles.buttonItem}>
           <Button
-            title="Listar"
-            onPress={() => navigation.navigate('ListScreen')}
+            title="Editar"
+            onPress={() => navigation.navigate('FormScreen')}
           />
         </View>
         <View style={styles.buttonItem}>
           <Button
-            title="Salvar"
-            color="green"
+            title="Excluir"
+            color="red"
             onPress={() => navigation.navigate('ListScreen')}
           />
         </View>
@@ -66,11 +53,12 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
-  input: {
+  text: {
     width: '80%',
     height: 40,
-    borderWidth: 1,
+    borderWidth: 0.3,
     borderColor: 'gray',
+    color: 'gray',
     borderRadius: 8,
     padding: 8,
     marginBottom: 16,
@@ -78,8 +66,9 @@ const styles = StyleSheet.create({
   textArea: {
     width: '80%',
     height: 100,
-    borderWidth: 1,
+    borderWidth: 0.3,
     borderColor: 'gray',
+    color: 'gray',
     borderRadius: 8,
     padding: 8,
     marginBottom: 16,
